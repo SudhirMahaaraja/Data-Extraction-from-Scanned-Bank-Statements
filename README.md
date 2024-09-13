@@ -38,3 +38,21 @@ Tesseract OCR: Required for text extraction from images.
 
 Ghostscript: Needed for Camelot to process PDFs.
 ```https://www.ghostscript.com/releases/index.html```
+
+## How It Works
+1. Preprocessing Images
+preprocess_image(image_path): Converts input images to grayscale, reduces noise, corrects skew, and normalizes the image. This prepares the image for more accurate OCR extraction.
+2. OCR on Images
+extract_text_from_image(image_path): Uses EasyOCR (with French language support) to read text from preprocessed images. The output is a string that can be further processed.
+3. Table Extraction from PDFs
+extract_tables_from_pdf(pdf_path): Uses Camelot to extract tables from PDF files. The extracted tables are converted into Pandas DataFrames for easy manipulation.
+4. Text Parsing & Information Extraction
+parse_text_with_heuristics(text): Parses raw text extracted from OCR or tables. It extracts dates, transaction details, debit/credit amounts, and modes of transaction. Uses regular expressions and NLP to identify important entities.
+5. Balance Calculation
+calculate_balance(debits, credits): Calculates a running balance by processing the list of debit and credit amounts extracted from the text.
+6. Saving Data
+save_data_to_files(parsed_data, output_csv, output_json): Saves the extracted and processed data to CSV and JSON files.
+7. Processing Folders
+process_folder(folder_path): Automates the extraction of data from all image and PDF files within a folder. Extracts text from images using EasyOCR, and from PDFs using Camelot.
+8. Cleaning CSV Data
+process_csv(input_csv, output_csv): Processes the generated CSV file by handling missing values and removing rows with irrelevant or incomplete data.
