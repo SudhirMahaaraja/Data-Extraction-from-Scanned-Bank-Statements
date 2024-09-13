@@ -26,4 +26,4 @@ To run this project, you'll need the following dependencies installed in your en
 
 #### Python Libraries
 You can install the required Python packages using the following command:
-pip install opencv-python pytesseract pandas camelot-py spacy easyocr deskew scipy
+```pip install opencv-python pytesseract pandas camelot-py spacy easyocr deskew scipy```
