@@ -71,3 +71,29 @@ To clean the extracted data and handle missing values, run:
 ```python script_name.py clean```
 
 The cleaned data will be saved in cleaned_output.csv.
+
+### Key Functions Breakdown
+* preprocess_image(image_path)
+This function loads an image from a given path, converts it to grayscale, reduces noise using Gaussian blur, and corrects any skew. Finally, the image is normalized to improve OCR performance.
+
+* extract_text_from_image(image_path)
+This function uses EasyOCR to extract French text from the preprocessed image. EasyOCR supports multiple languages and uses a deep learning model for text recognition.
+
+* extract_tables_from_pdf(pdf_path)
+This function reads tables from PDF files using Camelot’s 'stream' flavor, which is suitable for PDFs with irregular table structures. It converts the tables into DataFrames for easy processing.
+
+* parse_text_with_heuristics(text)
+This function uses regular expressions and Spacy's NLP model to extract important details such as dates, transaction details, debit/credit amounts, and bank names from the input text.
+
+* calculate_balance(debits, credits)
+This function calculates a running balance from lists of debit and credit amounts, adjusting the balance with each transaction.
+
+* save_data_to_files(parsed_data, output_csv, output_json)
+This function converts the extracted data into a Pandas DataFrame and saves it as both a CSV and a JSON file.
+
+* process_folder(folder_path)
+This function processes all files (images and PDFs) within a folder, extracting and parsing text from each file. The output is a combined list of transaction data from all the files.
+
+* process_csv(input_csv, output_csv)
+This function loads the extracted CSV file, handles missing values, removes unnecessary rows, and saves the cleaned data into a new CSV file.
+
