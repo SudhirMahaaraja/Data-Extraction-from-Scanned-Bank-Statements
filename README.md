@@ -56,3 +56,18 @@ save_data_to_files(parsed_data, output_csv, output_json): Saves the extracted an
 process_folder(folder_path): Automates the extraction of data from all image and PDF files within a folder. Extracts text from images using EasyOCR, and from PDFs using Camelot.
 8. Cleaning CSV Data
 process_csv(input_csv, output_csv): Processes the generated CSV file by handling missing values and removing rows with irrelevant or incomplete data.
+
+## Running the Project
+Step 1: Preprocess and Extract Data
+To process images and PDFs in the data/ folder and extract transaction information, run:
+```python script_name.py```
+
+This will output two files:
+output.csv: Contains the extracted transaction data.
+output.json: Contains the same data in JSON format.
+
+Step 2: Clean the CSV File
+To clean the extracted data and handle missing values, run:
+```python script_name.py clean```
+
+The cleaned data will be saved in cleaned_output.csv.
