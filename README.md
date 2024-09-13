@@ -27,3 +27,14 @@ To run this project, you'll need the following dependencies installed in your en
 #### Python Libraries
 You can install the required Python packages using the following command:
 ```pip install opencv-python pytesseract pandas camelot-py spacy easyocr deskew scipy```
+
+#### Language Models
+To process French texts, the Spacy language model is required. Install it with:
+```python -m spacy download fr_core_news_md```
+
+#### System Dependencies
+Tesseract OCR: Required for text extraction from images.
+```https://github.com/tesseract-ocr/tesseract```
+
+Ghostscript: Needed for Camelot to process PDFs.
+```https://www.ghostscript.com/releases/index.html```
